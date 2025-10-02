@@ -14,7 +14,21 @@ local files = {
 
 for urlPath, localPath in pairs(files) do
   print("Downloading " .. localPath .. "...")
-  local f = io.open(localPath, "w")
+
+  -- Ensure the directory exists
+  local dir = localPath:match("(.+)/[^/]+$")
+  if dir and not fs.exists(dir) then
+    fs.makeDirectory(dir)
+  end
+
+  -- Open the file safely
+  local f, err = io.open(localPath, "w")
+  if not f then
+    print("Failed to open file:", err)
+    return
+  end
+
+  -- Download the file
   for chunk in internet.request(base .. urlPath) do
     f:write(chunk)
   end
