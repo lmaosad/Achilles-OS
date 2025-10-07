@@ -31,4 +31,4 @@ for urlPath, localPath in pairs(files) do
   f:close()
 end
 
-print("✅ Achilles OS installed! Reboot to begin.")
+print(" Achilles OS installed! Reboot to begin.")
