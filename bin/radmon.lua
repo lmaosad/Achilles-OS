@@ -3,11 +3,11 @@ local internet = require("internet")
 local radsensor = component.radsensor
 local redstone = component.redstone
 
--- CONFIG
-local threshold = 5.0 -- radiation danger level
+
+local threshold = 5.0 
 local webhook = "https://discord.com/api/webhooks/1423022743334420651/S4eEtHkcuHMPs4UHreer59U-v_ECNyPawV3bGAO03MA2hgp0souuNbqXG0-GTyArBLuW" -- replace with full one
 
--- FUNCTION: send Discord webhook
+
 local function sendWebhook(message)
   local data = string.format('{"content":"%s"}', message)
   local ok, err = pcall(function()
@@ -19,7 +19,7 @@ local function sendWebhook(message)
   end
 end
 
-print("📡 Radiation monitoring online.")
+print(" Radiation monitoring")
 redstone.setOutput(0, 15)
 
 while true do
@@ -27,7 +27,7 @@ while true do
   
   if rads >= threshold then
     redstone.setOutput(0, 0)
-    sendWebhook(string.format("[⚠️ WARNING] Radiation levels high! (%.2f rads)", rads))
+    sendWebhook(string.format(" Radiation levels high (%.2f rads)", rads))
     print("Radiation high:", rads)
   else
     redstone.setOutput(0, 15)
