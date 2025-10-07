@@ -1,4 +1,4 @@
-local codes = {"YOURMOM", "U235", "AMEA"} -- change these
+local codes = {"YOURMOM", "U235", "AMEA"} 
 local entered = {}
 
 print("=== Nuclear Launch Console ===")
@@ -16,9 +16,9 @@ while #entered < 3 do
   end
 end
 
-print("[✔] All codes accepted. Launching missile...")
+print(" All codes accepted. Launching missile...")
 
--- Example redstone launch trigger
+
 local component = require("component")
 local redstone = component.redstone
 redstone.setOutput(0, 15)
