@@ -5,5 +5,4 @@ term.clear()
 print("=== Achilles OS ===")
 print("Loading system...")
 
--- Run the shell after boot
 shell.execute("/bin/shell.lua")
